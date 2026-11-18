@@ -28,7 +28,7 @@ public class EmpController {
         this.empService = empService;
     }
 
-    @GetMapping("/all")
+    @GetMapping
     public Page<Employee> getEmployees(@RequestParam(defaultValue = "0") int page,
     @RequestParam(defaultValue = "5") int size,
     @RequestParam(defaultValue = "id") String sortBy,
@@ -44,20 +44,20 @@ public class EmpController {
         return empService.getEmployeeById(id);
     }
 
-    @PostMapping("/save")
+    @PostMapping
     public Employee createEmployee(@RequestBody Employee employee){
         return empService.createEmployee(employee);
     }
 
-    @PutMapping("/update/{id}")
+    @PutMapping("/{id}")
     public Employee updateEmployee(@RequestBody Employee employee, @PathVariable Long id){
         return empService.updateEmployee(id, employee).orElse(new Employee());
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public String deleteEmployee(@PathVariable Long id){
        boolean bool =  empService.deleteEmployee(id);
-       return bool == true ? "Employee is deleted" : "Employee not deleted";
+       return bool == true ? "Employee is deleted" : "Employee does not exist";
     }
     
 }

@@ -9,6 +9,8 @@ import java.util.Optional;
 
 import org.springframework.data.domain.*;
 
+import com.example.ems.exception.DuplicateResourceException;
+
 
 @Service
 public class EmpService {
@@ -29,6 +31,10 @@ public class EmpService {
     }
 
     public Employee createEmployee(Employee employee){
+
+        if(empRepository.existsByEmail(employee.getEmail())){
+            throw new DuplicateResourceException("Employee already exists with email: " +employee.getEmail());
+        }
         return empRepository.save(employee);
     }
 
