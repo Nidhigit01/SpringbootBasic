@@ -17,10 +17,10 @@ step 1 - Clone the repository https://github.com/Nidhigit01/SpringbootBasic.git
 step 2 - Run the DemoApplication.java
 step 3 - Go to Postman and test following urls:
 method - URL
-POST     http://localhost:8080/employees/save
+POST     http://localhost:8080/employees/
 GET      http://localhost:8080/employees/{id}
-GET      http://localhost:8080/employees/all?page=<pageno.>&size=<size>&sortBy=<attribut>
-PUT      http://localhost:8080/employees/update/{id}
-DELETE   http://localhost:8080/employees/delete/{id}
+GET      http://localhost:8080/employees?page=<pageno.>&size=<size>&sortBy=<attribute>
+PUT      http://localhost:8080/employees/{id}
+DELETE   http://localhost:8080/employees/{id}
 
 
